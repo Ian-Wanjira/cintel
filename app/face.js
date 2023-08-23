@@ -1,14 +1,17 @@
-import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
 
-export default function Page() {
+export default function Face() {
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Face Detection</Text>
         <View style={styles.linkContainer}>
-          <Link style={styles.link} href="/details">
-            Details
+          <Link style={styles.link} href="/otp">
+            OTP
+          </Link>
+          <Link style={styles.link} href="/floor">
+            Floor
           </Link>
         </View>
       </View>
@@ -38,6 +41,6 @@ const styles = StyleSheet.create({
   },
   linkContainer: {
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
   },
 });
