@@ -40,12 +40,10 @@ export default function Details() {
             )}
           </Formik>
         </View>
-        <View style={styles.imageContainer}>
-          <Image
-            style={styles.image}
-            source={require("../../../assets/details.png")}
-          />
-        </View>
+        <Image
+          style={styles.image}
+          source={require("../../../assets/details.png")}
+        />
       </View>
     </ScrollView>
   );
@@ -63,12 +61,5 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-  },
-  imageContainer: {
-    flex: 1,
-  },
-  image: {
-    width: "100%",
-    resizeMode: "contain",
   },
 });

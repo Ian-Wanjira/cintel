@@ -1,10 +1,50 @@
-import { StyleSheet, ScrollView, View, Text } from "react-native";
+import { Field, Formik } from "formik";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
+import { Button } from "react-native-paper";
 
-export default function Id() {
+import { router } from "expo-router";
+import { CustomInput } from "../../components/customInput";
+import { idValidationSchema } from "../../utils/validationSchema";
+
+export default function Details() {
+  const _submit = (_) => {
+    router.push("/details/id");
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.title}>ID</Text>
+        <View style={styles.content}>
+          <Formik
+            initialValues={{ id: "" }}
+            onSubmit={_submit}
+            validationSchema={idValidationSchema}
+          >
+            {({ handleSubmit, isValid }) => (
+              <>
+                <Field
+                  component={CustomInput}
+                  name="id"
+                  label="ID Number"
+                  keyboardType="numeric"
+                />
+                <View style={{ flexDirection: "row", marginTop: 12 }}>
+                  <Button
+                    mode="contained"
+                    onPress={handleSubmit}
+                    disabled={!isValid}
+                  >
+                    Next
+                  </Button>
+                </View>
+              </>
+            )}
+          </Formik>
+        </View>
+        <Image
+          style={styles.image}
+          source={require("../../../assets/details.png")}
+        />
       </View>
     </ScrollView>
   );
@@ -13,10 +53,14 @@ export default function Id() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
+    padding: 76,
   },
   main: {
     flex: 1,
-    justifyItems: "center",
-    alignItems: "center",
+    flexDirection: "row",
+    gap: 120,
+  },
+  content: {
+    flex: 1,
   },
 });
