@@ -11,3 +11,7 @@ export const fullNameValidationSchema = yup.object().shape({
 export const idValidationSchema = yup.object().shape({
   id: yup.number().required().label("id"),
 });
+
+export const telValidationSchema = yup.object().shape({
+  tel: yup.number().required().label("tel"),
+});

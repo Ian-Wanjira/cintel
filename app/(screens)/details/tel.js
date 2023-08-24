@@ -4,11 +4,11 @@ import { Button } from "react-native-paper";
 
 import { router } from "expo-router";
 import { CustomInput } from "../../components/customInput";
-import { idValidationSchema } from "../../utils/validationSchema";
+import { telValidationSchema } from "../../utils/validationSchema";
 
 export default function Details() {
   const _submit = (_) => {
-    router.push("/details/tel");
+    router.push("/details/otp");
   };
 
   return (
@@ -18,15 +18,15 @@ export default function Details() {
           <Formik
             initialValues={{ id: "" }}
             onSubmit={_submit}
-            validationSchema={idValidationSchema}
+            validationSchema={telValidationSchema}
           >
             {({ handleSubmit, isValid }) => (
               <>
                 <Field
                   component={CustomInput}
-                  name="id"
-                  label="ID Number"
-                  keyboardType="numeric"
+                  name="tel"
+                  label="Telephone Number"
+                  keyboardType="phone-pad"
                 />
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
                   <Button
