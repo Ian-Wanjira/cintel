@@ -1,58 +1,77 @@
 import { StyleSheet, View, Image, ScrollView, Dimensions } from "react-native";
-import { PaperProvider, Button, Text } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 import { Link } from "expo-router";
 
-export default function Page() {
-  const screenWidth = Dimensions.get("window").width;
+import { Footer } from "./components/footer";
+import { Header } from "./components/header";
 
+export default function Page() {
   return (
-    <PaperProvider>
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.main}>
-          <View style={styles.content}>
-            <Text style={styles.title} variant="displayLarge">
-              Welcome to International House
-            </Text>
-            <View style={styles.buttonContainer}>
-              <Link href="/details">
-                <Button mode="contained" buttonColor="#010089">
-                  New Visitor
-                </Button>
-              </Link>
-              <Button
-                mode="outlined"
-                textColor="#010089"
-                style={styles.outlinedBtn}
-              >
-                Return Visitor
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.logoText}>
+        CintelCore <Text style={{ color: "#FF0000" }}>AMS</Text>
+      </Text>
+      <View style={styles.main}>
+        <View style={styles.content}>
+          <Text style={styles.title} variant="displayMedium">
+            Welcome to International House
+          </Text>
+          <View style={styles.buttonContainer}>
+            <Link href="/details">
+              <Button mode="contained" buttonColor="#010089">
+                New Visitor
               </Button>
-            </View>
-          </View>
-          <View style={styles.image}>
-            <Image
-              resizeMode="contain"
-              style={{ maxWidth: screenWidth * 0.95 }}
-              source={require("../assets/landing.png")}
-            />
+            </Link>
+            <Button
+              mode="outlined"
+              textColor="#010089"
+              style={styles.outlinedBtn}
+            >
+              Return Visitor
+            </Button>
           </View>
         </View>
-      </ScrollView>
-    </PaperProvider>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={require("../assets/home.png")}
+          />
+        </View>
+      </View>
+      <Footer />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
+    padding: 64,
+    paddingBottom: 31,
+  },
+  header: {
+    color: "#010089",
+    fontWeight: "500",
+    fontSize: 24,
+    lineHeight: 29.05,
   },
   main: {
     flex: 1,
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 20,
-    justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
+    justifyContent: "space-between",
+  },
+  content: {
+    flexBasis: "55%",
+  },
+  imageContainer: {
+    flexBasis: "40%",
+  },
+  image: {
+    objectFit: "contain",
+    width: "100%",
   },
   title: {
     fontWeight: "bold",
@@ -60,7 +79,7 @@ const styles = StyleSheet.create({
     maxWidth: 700,
   },
   buttonContainer: {
-    marginTop: 16,
+    marginTop: 32,
     flexDirection: "row",
     gap: 16,
   },

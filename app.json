@@ -4,7 +4,7 @@
     "slug": "cintel",
     "scheme": "cintel",
     "version": "1.0.0",
-    "orientation": "adaptive",
+    "orientation": "landscape",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
