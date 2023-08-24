@@ -14,10 +14,16 @@ export default function Page() {
                 Welcome to International House
               </Text>
               <View style={styles.buttonContainer}>
-                <Button style={styles.newVisitorBtn} mode="contained">
+                <Button mode="contained" buttonColor="#010089">
                   New Visitor
                 </Button>
-                <Button mode="outlined">Return Visitor</Button>
+                <Button
+                  mode="outlined"
+                  textColor="#010089"
+                  style={styles.outlinedBtn}
+                >
+                  Return Visitor
+                </Button>
               </View>
             </View>
             <View>
@@ -52,12 +58,12 @@ const styles = StyleSheet.create({
     color: "#3D3D4A",
     maxWidth: 700,
   },
-  newVisitorBtn: {
-    backgroundColor: "#010089",
-  },
   buttonContainer: {
     marginTop: 16,
     flexDirection: "row",
     gap: 16,
+  },
+  outlinedBtn: {
+    borderColor: "#010089",
   },
 });
