@@ -1,48 +1,49 @@
 import { StyleSheet, View, Image, ScrollView, Dimensions } from "react-native";
 import { PaperProvider, Button, Text } from "react-native-paper";
+import { Link } from "expo-router";
 
 export default function Page() {
   const screenWidth = Dimensions.get("window").width;
 
   return (
     <PaperProvider>
-      <View style={styles.container}>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={styles.main}>
-            <View>
-              <Text style={styles.title} variant="displayLarge">
-                Welcome to International House
-              </Text>
-              <View style={styles.buttonContainer}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.main}>
+          <View style={styles.content}>
+            <Text style={styles.title} variant="displayLarge">
+              Welcome to International House
+            </Text>
+            <View style={styles.buttonContainer}>
+              <Link href="/details">
                 <Button mode="contained" buttonColor="#010089">
                   New Visitor
                 </Button>
-                <Button
-                  mode="outlined"
-                  textColor="#010089"
-                  style={styles.outlinedBtn}
-                >
-                  Return Visitor
-                </Button>
-              </View>
-            </View>
-            <View>
-              <Image
-                resizeMode="contain"
-                style={{ maxWidth: screenWidth * 0.95 }}
-                source={require("../assets/landing.png")}
-              />
+              </Link>
+              <Button
+                mode="outlined"
+                textColor="#010089"
+                style={styles.outlinedBtn}
+              >
+                Return Visitor
+              </Button>
             </View>
           </View>
-        </ScrollView>
-      </View>
+          <View style={styles.image}>
+            <Image
+              resizeMode="contain"
+              style={{ maxWidth: screenWidth * 0.95 }}
+              source={require("../assets/landing.png")}
+            />
+          </View>
+        </View>
+      </ScrollView>
     </PaperProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
   },
   main: {
     flex: 1,
