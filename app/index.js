@@ -1,43 +1,63 @@
-import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, Image, ScrollView, Dimensions } from "react-native";
+import { PaperProvider, Button, Text } from "react-native-paper";
 
 export default function Page() {
+  const screenWidth = Dimensions.get("window").width;
+
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Home</Text>
-        <View style={styles.linkContainer}>
-          <Link style={styles.link} href="/details">
-            Details
-          </Link>
-        </View>
+    <PaperProvider>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={styles.main}>
+            <View>
+              <Text style={styles.title} variant="displayLarge">
+                Welcome to International House
+              </Text>
+              <View style={styles.buttonContainer}>
+                <Button style={styles.newVisitorBtn} mode="contained">
+                  New Visitor
+                </Button>
+                <Button mode="outlined">Return Visitor</Button>
+              </View>
+            </View>
+            <View>
+              <Image
+                resizeMode="contain"
+                style={{ maxWidth: screenWidth * 0.95 }}
+                source={require("../assets/landing.png")}
+              />
+            </View>
+          </View>
+        </ScrollView>
       </View>
-    </View>
+    </PaperProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    padding: 24,
   },
   main: {
     flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 20,
     justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
+    alignItems: "center",
+    alignContent: "center",
   },
   title: {
-    fontSize: 64,
     fontWeight: "bold",
+    color: "#3D3D4A",
+    maxWidth: 700,
   },
-  link: {
-    fontSize: 24,
-    color: "#0070f3",
+  newVisitorBtn: {
+    backgroundColor: "#010089",
   },
-  linkContainer: {
+  buttonContainer: {
+    marginTop: 16,
     flexDirection: "row",
-    justifyContent: "flex-end",
+    gap: 16,
   },
 });
