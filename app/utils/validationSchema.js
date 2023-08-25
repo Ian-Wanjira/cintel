@@ -9,7 +9,7 @@ export const fullNameValidationSchema = yup.object().shape({
 });
 
 export const idValidationSchema = yup.object().shape({
-  id: yup.number().required().label("id"),
+  id: yup.string().required().label("id"),
 });
 
 export const telValidationSchema = yup.object().shape({
