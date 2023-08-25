@@ -97,8 +97,8 @@ export default function Details() {
           <View
             style={{
               flexDirection: "row",
-              marginTop: 12,
-              justifyContent: "space-between",
+              marginTop: 28,
+              justifyContent: "space-around",
             }}
           >
             <Button
