@@ -98,7 +98,8 @@ export default function Details() {
             style={{
               flexDirection: "row",
               marginTop: 28,
-              justifyContent: "space-around",
+              justifyContent: "center",
+              gap: 24,
             }}
           >
             <Button
