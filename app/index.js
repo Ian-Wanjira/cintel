@@ -32,10 +32,7 @@ export default function Page() {
           </View>
         </View>
         <View style={styles.imageContainer}>
-          <Image
-            style={styles.image}
-            source={require("../assets/home.png")}
-          />
+          <Image style={styles.image} source={require("../assets/home.png")} />
         </View>
       </View>
       <Footer />
@@ -62,6 +59,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     justifyContent: "space-between",
+  },
+  logoText: {
+    color: "#010089",
   },
   content: {
     flexBasis: "55%",

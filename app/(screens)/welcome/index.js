@@ -1,47 +1,58 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Link } from "expo-router";
+import { StyleSheet, ScrollView, View } from "react-native";
+import { Text } from "react-native-paper";
+
+import { Footer } from "../../components";
+import { router } from "expo-router";
+import { useEffect } from "react";
 
 export default function Welcome() {
+  const name = "John Doe";
+
+  const timer = setTimeout(() => {
+    router.push("/");
+  }, 5000);
+
+  useEffect(() => {
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.title}>Welcome</Text>
-        <View style={styles.linkContainer}>
-          <Link style={styles.link} href="/office">
-            Office
-          </Link>
-          <Link style={styles.link} href="/">
-            Home
-          </Link>
-        </View>
+        <Text variant="headlineSmall" style={styles.title}>
+          WELCOME
+        </Text>
+        <Text variant="headlineMedium" style={styles.name}>
+          {name.toUpperCase()}
+        </Text>
+        <Text variant="headlineSmall" style={styles.info}>
+          PLEASE PROCEED
+        </Text>
       </View>
-    </View>
+      <Footer />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    padding: 24,
+    flexGrow: 1,
   },
   main: {
     flex: 1,
     justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
+    alignItems: "center",
+    gap: 48,
   },
   title: {
-    fontSize: 64,
+    color: "#010089",
+  },
+  name: {
     fontWeight: "bold",
+    color: "#010089",
   },
-  link: {
-    fontSize: 24,
-    color: "#0070f3",
-  },
-  linkContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    gap: 30,
+  info: {
+    fontWeight: 500,
+    color: "#010089",
   },
 });
