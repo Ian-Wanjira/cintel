@@ -37,14 +37,14 @@ export default function Details() {
   const _submit = async (_) => {
     setIsLoading(true);
 
-    const result = await new Promise((resolve, reject) => {
+    const result = await new Promise((resolve) => {
       setTimeout(() => {
         if (value === "1234") {
           resolve(true);
         } else {
           resolve(false);
         }
-      }, 5000);
+      }, 2500);
     });
 
     if (!result) {
@@ -106,7 +106,7 @@ export default function Details() {
               mode="contained"
               onPress={_otp}
             >
-              Request OTP again
+              Resend OTP
             </Button>
             <Button
               mode="contained"

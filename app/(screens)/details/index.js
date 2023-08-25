@@ -3,7 +3,7 @@ import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
 
 import { router } from "expo-router";
-import { CustomInput } from "../../components/customInput";
+import { CustomInput } from "../../components";
 import { fullNameValidationSchema } from "../../utils/validationSchema";
 
 export default function Details() {

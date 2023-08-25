@@ -1,34 +1,31 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Link } from "expo-router";
 
 export default function Face() {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.main}>
         <Text style={styles.title}>Face Detection</Text>
         <View style={styles.linkContainer}>
-          <Link style={styles.link} href="/otp">
-            OTP
-          </Link>
           <Link style={styles.link} href="/floor">
             Floor
           </Link>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
+    flexGrow: 1,
     padding: 24,
   },
   main: {
     flex: 1,
     justifyContent: "center",
     maxWidth: 960,
+    alignItems: "center",
     marginHorizontal: "auto",
   },
   title: {

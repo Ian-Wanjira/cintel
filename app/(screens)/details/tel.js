@@ -1,8 +1,8 @@
+import { router } from "expo-router";
 import { Field, Formik } from "formik";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
 
-import { router } from "expo-router";
 import { CustomInput } from "../../components/customInput";
 import { telValidationSchema } from "../../utils/validationSchema";
 

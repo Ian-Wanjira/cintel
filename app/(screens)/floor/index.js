@@ -1,47 +1,69 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Link } from "expo-router";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { Text } from "react-native-paper";
+import { Link, router } from "expo-router";
+import { Button } from "react-native-paper";
+
+import { Footer, Header } from "../../components";
 
 export default function Floor() {
+  const floors = new Array(20).fill(0).map((_, i) => i + 1);
+
+  const _onPress = (floor) => {
+    console.log(floor);
+    router.push("/office");
+  };
+
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.title}>Floor</Text>
-        <View style={styles.linkContainer}>
-          <Link style={styles.link} href="/face">
-            Face Detection
-          </Link>
-          <Link style={styles.link} href="/office">
-            Office
-          </Link>
+        <Text variant="displaySmall" style={styles.title}>
+          SELECT FLOOR
+        </Text>
+        <View style={styles.content}>
+          {floors.map((floor) => (
+            <Button
+              key={floor}
+              mode="elevated"
+              onPress={() => _onPress(floor)}
+              textColor="white"
+              buttonColor="#6C6CA3"
+              style={styles.button}
+              contentStyle={styles.buttonContent}
+            >
+              {floor}
+            </Button>
+          ))}
         </View>
       </View>
-    </View>
+      <Footer />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    padding: 24,
+    flexGrow: 1,
   },
   main: {
     flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
+    width: 760,
+    alignSelf: "center",
+  },
+  content: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 24,
+    marginTop: 24,
   },
   title: {
-    fontSize: 64,
-    fontWeight: "bold",
+    textAlign: "center",
+    color: "#010089",
   },
-  link: {
-    fontSize: 24,
-    color: "#0070f3",
+  buttonContent: {
+    width: 172,
+    height: 56,
   },
-  linkContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    gap: 30,
+  button: {
+    borderRadius: 104,
   },
 });
