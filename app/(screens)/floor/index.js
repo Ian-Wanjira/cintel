@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 760,
     alignSelf: "center",
+    justifyContent: "center",
   },
   content: {
     flexDirection: "row",

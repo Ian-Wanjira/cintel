@@ -1,47 +1,74 @@
-import { StyleSheet, View, Text } from "react-native";
-import { Link } from "expo-router";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { Text } from "react-native-paper";
+import { Link, router } from "expo-router";
+import { Button } from "react-native-paper";
 
-export default function Page() {
+import { Footer, Header } from "../../components";
+
+export default function Office() {
+  const office = new Array(9)
+    .fill(0)
+    .map((_, i) => i + 1)
+    .map((i) => String.fromCharCode(64 + i));
+
+  const _onPress = (floor) => {
+    console.log(floor);
+    router.push("/welcome");
+  };
+
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Header />
       <View style={styles.main}>
-        <Text style={styles.title}>Office</Text>
-        <View style={styles.linkContainer}>
-          <Link style={styles.link} href="/details">
-            Details
-          </Link>
-          <Link style={styles.link} href="/welcome">
-            Welcome
-          </Link>
+        <Text variant="displaySmall" style={styles.title}>
+          SELECT OFFICE
+        </Text>
+        <View style={styles.content}>
+          {office.map((office) => (
+            <Button
+              key={office}
+              mode="elevated"
+              onPress={() => _onPress(office)}
+              textColor="white"
+              buttonColor="#6C6CA3"
+              style={styles.button}
+              contentStyle={styles.buttonContent}
+            >
+              {"OFFICE " + office}
+            </Button>
+          ))}
         </View>
       </View>
-    </View>
+      <Footer />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    padding: 24,
+    flexGrow: 1,
   },
   main: {
     flex: 1,
+    width: 582,
+    alignSelf: "center",
     justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
+  },
+  content: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 24,
+    marginTop: 24,
   },
   title: {
-    fontSize: 64,
-    fontWeight: "bold",
+    textAlign: "center",
+    color: "#010089",
   },
-  link: {
-    fontSize: 24,
-    color: "#0070f3",
+  buttonContent: {
+    width: 172,
+    height: 60,
   },
-  linkContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    gap: 30,
+  button: {
+    borderRadius: 104,
   },
 });
