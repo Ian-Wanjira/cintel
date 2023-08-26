@@ -2,7 +2,7 @@ import { Link } from "expo-router";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button, Text } from "react-native-paper";
 
-import { Footer } from "../lib/components/footer";
+import { GradientText, Footer } from "../lib/components";
 
 export default function Home() {
   return (
@@ -10,7 +10,9 @@ export default function Home() {
       <View style={styles.main}>
         <View style={styles.content}>
           <Text style={styles.title}>Welcome to :</Text>
-          <Text style={styles.subtitle}>International House</Text>
+          <GradientText style={styles.subtitle}>
+            International House
+          </GradientText>
           <View style={styles.buttonContainer}>
             <Link href="/details">
               <Button
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 48,
-    fontWeight: "bold",
+    fontWeight: 900,
     color: "#3D3D4A",
   },
   buttonContainer: {
