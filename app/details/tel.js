@@ -3,11 +3,20 @@ import { Field, Formik } from "formik";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
 
-import { CustomInput } from "../../components/customInput";
-import { telValidationSchema } from "../../utils/validationSchema";
+import { CustomInput } from "../../lib/components/customInput";
+import { telValidationSchema } from "../../lib/validations";
+import { useUser, useUserDispatch } from "../../lib/contexts";
 
-export default function Details() {
-  const _submit = (_) => {
+export default function Tel() {
+  const { tel } = useUser();
+  const dispatch = useUserDispatch();
+
+  const handleTelChange = (tel) => {
+    dispatch({ type: "SET_TEL", payload: tel });
+  };
+
+  const _submit = ({ tel }) => {
+    handleTelChange(tel);
     router.push("/details/otp");
   };
 
@@ -16,7 +25,7 @@ export default function Details() {
       <View style={styles.main}>
         <View style={styles.content}>
           <Formik
-            initialValues={{ id: "" }}
+            initialValues={{ tel }}
             onSubmit={_submit}
             validationSchema={telValidationSchema}
           >
@@ -44,7 +53,7 @@ export default function Details() {
         </View>
         <Image
           style={styles.image}
-          source={require("../../../assets/details.png")}
+          source={require("../../assets/details.png")}
         />
       </View>
     </ScrollView>

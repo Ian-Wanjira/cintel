@@ -1,14 +1,23 @@
 import { Field, Formik } from "formik";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
-
 import { router } from "expo-router";
-import { CustomInput } from "../../components/customInput";
-import { idValidationSchema } from "../../utils/validationSchema";
 
-export default function Details() {
-  const _submit = (_) => {
-    router.push("/details/tel");
+import { CustomInput } from "../../lib/components/customInput";
+import { fullNameValidationSchema } from "../../lib/validations";
+import { useUser, useUserDispatch } from "../../lib/contexts/userContext";
+
+export default function Name() {
+  const { fullName } = useUser();
+  const dispatch = useUserDispatch();
+
+  function handleChangeName(fullName) {
+    dispatch({ type: "SET_FULL_NAME", payload: fullName });
+  }
+
+  const _submit = ({ fullName }) => {
+    handleChangeName(fullName);
+    router.push("/details/id");
   };
 
   return (
@@ -16,17 +25,16 @@ export default function Details() {
       <View style={styles.main}>
         <View style={styles.content}>
           <Formik
-            initialValues={{ id: "" }}
+            initialValues={{ fullName }}
             onSubmit={_submit}
-            validationSchema={idValidationSchema}
+            validationSchema={fullNameValidationSchema}
           >
             {({ handleSubmit, isValid }) => (
               <>
                 <Field
                   component={CustomInput}
-                  name="id"
-                  label="ID Number"
-                  keyboardType="numeric"
+                  name="fullName"
+                  label="Full Name"
                   autoFocus
                 />
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
@@ -44,7 +52,7 @@ export default function Details() {
         </View>
         <Image
           style={styles.image}
-          source={require("../../../assets/details.png")}
+          source={require("../../assets/details.png")}
         />
       </View>
     </ScrollView>

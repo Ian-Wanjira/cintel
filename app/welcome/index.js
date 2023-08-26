@@ -1,16 +1,19 @@
+import { useEffect } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
+import { router } from "expo-router";
 import { Text } from "react-native-paper";
 
-import { Footer } from "../../components";
-import { router } from "expo-router";
-import { useEffect } from "react";
+import { Footer } from "../../lib/components";
+import { useUser, useUserDispatch } from "../../lib/contexts";
 
 export default function Welcome() {
-  const name = "John Doe";
+  const { fullName } = useUser();
+  const dispatch = useUserDispatch();
 
   const timer = setTimeout(() => {
+    dispatch({ type: "RESET" });
     router.push("/");
-  }, 5000);
+  }, 3000);
 
   useEffect(() => {
     return () => clearTimeout(timer);
@@ -23,7 +26,7 @@ export default function Welcome() {
           WELCOME
         </Text>
         <Text variant="headlineMedium" style={styles.name}>
-          {name.toUpperCase()}
+          {fullName.toUpperCase()}
         </Text>
         <Text variant="headlineSmall" style={styles.info}>
           PLEASE PROCEED

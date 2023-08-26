@@ -142,7 +142,7 @@ export default function Details() {
         </View>
         <Image
           style={styles.image}
-          source={require("../../../assets/details.png")}
+          source={require("../../assets/details.png")}
         />
       </View>
     </ScrollView>

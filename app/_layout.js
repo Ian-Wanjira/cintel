@@ -1,13 +1,13 @@
 import { Slot } from "expo-router";
 
-import { Header, Footer } from "../../components";
+import { UserProvider } from "../lib/contexts";
 
 export default function AppLayout() {
   return (
     <>
-      <Header />
-      <Slot />
-      <Footer />
+      <UserProvider>
+        <Slot />
+      </UserProvider>
     </>
   );
 }

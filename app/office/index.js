@@ -3,16 +3,23 @@ import { Text } from "react-native-paper";
 import { Link, router } from "expo-router";
 import { Button } from "react-native-paper";
 
-import { Footer, Header } from "../../components";
+import { Footer, Header } from "../../lib/components";
+import { useUser, useUserDispatch } from "../../lib/contexts";
 
 export default function Office() {
-  const office = new Array(9)
+  const offices = new Array(9)
     .fill(0)
     .map((_, i) => i + 1)
     .map((i) => String.fromCharCode(64 + i));
+  const { office } = useUser();
+  const dispatch = useUserDispatch();
 
-  const _onPress = (floor) => {
-    console.log(floor);
+  const selectOffice = (office) => {
+    dispatch({ type: "SET_OFFICE", payload: office });
+  };
+
+  const _onPress = (office) => {
+    selectOffice(office);
     router.push("/welcome");
   };
 
@@ -24,7 +31,7 @@ export default function Office() {
           SELECT OFFICE
         </Text>
         <View style={styles.content}>
-          {office.map((office) => (
+          {offices.map((office) => (
             <Button
               key={office}
               mode="elevated"

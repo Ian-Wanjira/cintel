@@ -1,11 +1,10 @@
-import { StyleSheet, View, Image, ScrollView, Dimensions } from "react-native";
-import { Button, Text } from "react-native-paper";
 import { Link } from "expo-router";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
+import { Button, Text } from "react-native-paper";
 
-import { Footer } from "./components/footer";
-import { Header } from "./components/header";
+import { Footer } from "../lib/components/footer";
 
-export default function Page() {
+export default function Home() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.logoText}>

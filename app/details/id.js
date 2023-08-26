@@ -1,14 +1,23 @@
 import { Field, Formik } from "formik";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
-
 import { router } from "expo-router";
-import { CustomInput } from "../../components";
-import { fullNameValidationSchema } from "../../utils/validationSchema";
 
-export default function Details() {
-  const _submit = (_) => {
-    router.push("/details/id");
+import { CustomInput } from "../../lib/components/customInput";
+import { idValidationSchema } from "../../lib/validations";
+import { useUser, useUserDispatch } from "../../lib/contexts";
+
+export default function Id() {
+  const { id } = useUser();
+  const dispatch = useUserDispatch();
+
+  function handleChangeId(id) {
+    dispatch({ type: "SET_ID", payload: id });
+  }
+
+  const _submit = ({ id }) => {
+    handleChangeId(id);
+    router.push("/details/tel");
   };
 
   return (
@@ -16,16 +25,17 @@ export default function Details() {
       <View style={styles.main}>
         <View style={styles.content}>
           <Formik
-            initialValues={{ fullName: "" }}
+            initialValues={{ id }}
             onSubmit={_submit}
-            validationSchema={fullNameValidationSchema}
+            validationSchema={idValidationSchema}
           >
             {({ handleSubmit, isValid }) => (
               <>
                 <Field
                   component={CustomInput}
-                  name="fullName"
-                  label="Full Name"
+                  name="id"
+                  label="ID Number"
+                  keyboardType="numeric"
                   autoFocus
                 />
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
@@ -43,7 +53,7 @@ export default function Details() {
         </View>
         <Image
           style={styles.image}
-          source={require("../../../assets/details.png")}
+          source={require("../../assets/details.png")}
         />
       </View>
     </ScrollView>
