@@ -21,8 +21,14 @@ export default function Details() {
     setValue,
   });
   const [isLoading, setIsLoading] = useState(false);
-
   const [seconds, setSeconds] = useState(30);
+
+  useEffect(() => {
+    setTimeout(() => {
+      ref.current.focus();
+    }, 100);
+  }, []);
+
   useEffect(() => {
     const timerId = setTimeout(() => {
       if (seconds > 0) {
