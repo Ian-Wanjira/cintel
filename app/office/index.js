@@ -23,7 +23,6 @@ export default function Office() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Header />
       <View style={styles.main}>
         <Text variant="displaySmall" style={styles.title}>
           SELECT OFFICE

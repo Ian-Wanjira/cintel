@@ -7,26 +7,27 @@ import { Footer } from "../lib/components/footer";
 export default function Home() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.logoText}>
-        CintelCore <Text style={{ color: "#FF0000" }}>AMS</Text>
-      </Text>
       <View style={styles.main}>
         <View style={styles.content}>
-          <Text style={styles.title} variant="displayMedium">
-            Welcome to International House
-          </Text>
+          <Text style={styles.title}>Welcome to :</Text>
+          <Text style={styles.subtitle}>International House</Text>
           <View style={styles.buttonContainer}>
             <Link href="/details">
-              <Button mode="contained" buttonColor="#010089">
-                New Visitor
+              <Button
+                mode="contained"
+                buttonColor="#010089"
+                style={styles.primaryButton}
+                contentStyle={{ height: 56 }}
+              >
+                <Text style={styles.primaryButtonText}>New Visitor</Text>
               </Button>
             </Link>
             <Button
               mode="outlined"
-              textColor="#010089"
               style={styles.outlinedBtn}
+              contentStyle={{ height: 56 }}
             >
-              Return Visitor
+              <Text style={styles.outlinedBtnText}>Return Visitor</Text>
             </Button>
           </View>
         </View>
@@ -42,14 +43,8 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    padding: 64,
+    paddingHorizontal: 76,
     paddingBottom: 31,
-  },
-  header: {
-    color: "#010089",
-    fontWeight: "500",
-    fontSize: 24,
-    lineHeight: 29.05,
   },
   main: {
     flex: 1,
@@ -58,31 +53,48 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     justifyContent: "space-between",
-  },
-  logoText: {
-    color: "#010089",
+    gap: 20,
   },
   content: {
-    flexBasis: "55%",
+    flex: 1,
   },
   imageContainer: {
-    flexBasis: "40%",
+    flex: 1,
+    alignItems: "flex-end",
   },
   image: {
     objectFit: "contain",
-    width: "100%",
+    marginLeft: "auto",
   },
   title: {
+    fontSize: 48,
     fontWeight: "bold",
     color: "#3D3D4A",
-    maxWidth: 700,
+  },
+  subtitle: {
+    fontSize: 48,
+    fontWeight: "bold",
+    color: "#3D3D4A",
   },
   buttonContainer: {
     marginTop: 32,
     flexDirection: "row",
     gap: 16,
   },
+  primaryButton: {
+    borderRadius: 100,
+  },
+  primaryButtonText: {
+    color: "#fff",
+    fontSize: 20,
+  },
   outlinedBtn: {
     borderColor: "#010089",
+    borderRadius: 100,
+    borderWidth: 2,
+  },
+  outlinedBtnText: {
+    color: "#010089",
+    fontSize: 20,
   },
 });
