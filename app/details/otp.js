@@ -24,12 +24,6 @@ export default function Details() {
   const [seconds, setSeconds] = useState(30);
 
   useEffect(() => {
-    setTimeout(() => {
-      ref.current.focus();
-    }, 100);
-  }, []);
-
-  useEffect(() => {
     const timerId = setTimeout(() => {
       if (seconds > 0) {
         setSeconds(seconds - 1);
@@ -79,6 +73,7 @@ export default function Details() {
             Enter OTP
           </Text>
           <CodeField
+            autoFocus
             ref={ref}
             {...props}
             value={value}
