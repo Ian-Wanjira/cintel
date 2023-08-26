@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { StyleSheet, ScrollView, View } from "react-native";
 import { router } from "expo-router";
+import { useEffect } from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
 
 import { Footer } from "../../lib/components";

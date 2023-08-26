@@ -1,17 +1,15 @@
+import { router } from "expo-router";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
-import { Link, router } from "expo-router";
-import { Button } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 
 import { Footer, Header } from "../../lib/components";
-import { useUser, useUserDispatch } from "../../lib/contexts";
+import { useUserDispatch } from "../../lib/contexts";
 
 export default function Office() {
   const offices = new Array(9)
     .fill(0)
     .map((_, i) => i + 1)
     .map((i) => String.fromCharCode(64 + i));
-  const { office } = useUser();
   const dispatch = useUserDispatch();
 
   const selectOffice = (office) => {

@@ -1,11 +1,11 @@
+import { router } from "expo-router";
 import { Field, Formik } from "formik";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
-import { router } from "expo-router";
 
 import { CustomInput } from "../../lib/components/customInput";
-import { fullNameValidationSchema } from "../../lib/validations";
 import { useUser, useUserDispatch } from "../../lib/contexts/userContext";
+import { fullNameValidationSchema } from "../../lib/validations";
 
 export default function Name() {
   const { fullName } = useUser();

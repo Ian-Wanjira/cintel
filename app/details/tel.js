@@ -4,8 +4,8 @@ import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
 
 import { CustomInput } from "../../lib/components/customInput";
-import { telValidationSchema } from "../../lib/validations";
 import { useUser, useUserDispatch } from "../../lib/contexts";
+import { telValidationSchema } from "../../lib/validations";
 
 export default function Tel() {
   const { tel } = useUser();

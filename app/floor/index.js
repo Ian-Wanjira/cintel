@@ -1,14 +1,12 @@
+import { router } from "expo-router";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
-import { Link, router } from "expo-router";
-import { Button } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 
-import { Footer, Header } from "../../lib/components";
-import { useUser, useUserDispatch } from "../../lib/contexts";
+import { Footer } from "../../lib/components";
+import { useUserDispatch } from "../../lib/contexts";
 
 export default function Floor() {
   const floors = new Array(20).fill(0).map((_, i) => i + 1);
-  const { floor } = useUser();
   const dispatch = useUserDispatch();
 
   const selectFloor = (floor) => {

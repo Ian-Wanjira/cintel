@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Link } from "expo-router";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function Face() {
   return (
