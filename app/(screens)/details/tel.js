@@ -27,6 +27,7 @@ export default function Details() {
                   name="tel"
                   label="Telephone Number"
                   keyboardType="phone-pad"
+                  autoFocus
                 />
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
                   <Button

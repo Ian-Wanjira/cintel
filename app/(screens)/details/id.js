@@ -27,6 +27,7 @@ export default function Details() {
                   name="id"
                   label="ID Number"
                   keyboardType="numeric"
+                  autoFocus
                 />
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
                   <Button

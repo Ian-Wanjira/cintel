@@ -26,6 +26,7 @@ export default function Details() {
                   component={CustomInput}
                   name="fullName"
                   label="Full Name"
+                  autoFocus
                 />
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
                   <Button

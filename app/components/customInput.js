@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { TextInput, Text } from "react-native-paper";
 
 export const CustomInput = (props) => {
@@ -6,8 +7,16 @@ export const CustomInput = (props) => {
     form: { errors, touched, setFieldTouched },
     ...inputProps
   } = props;
-
   const hasError = errors[name] && touched[name];
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (props.autoFocus) {
+      setTimeout(() => {
+        ref.current.focus();
+      }, 100);
+    }
+  }, []);
 
   return (
     <>
@@ -20,6 +29,7 @@ export const CustomInput = (props) => {
           onBlur(name);
         }}
         {...inputProps}
+        ref={ref}
       />
       {hasError && (
         <Text style={{ fontSize: 12, color: "red" }}>{errors[name]}</Text>
