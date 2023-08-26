@@ -87,6 +87,7 @@ export default function Details() {
             rootStyle={styles.codeFiledRoot}
             keyboardType="number-pad"
             textContentType="oneTimeCode"
+            editable={!isLoading}
             renderCell={({ index, symbol, isFocused }) => (
               <View
                 // Make sure that you pass onLayout={getCellOnLayoutHandler(index)} prop to root component of "Cell"
