@@ -6,7 +6,7 @@ import { BackNavigator } from "../../lib/components/backNavigator";
 export default function DetailsLayout() {
   return (
     <>
-      <BackNavigator />
+
       <Slot />
       <Footer />
     </>
