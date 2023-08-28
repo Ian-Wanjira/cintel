@@ -51,10 +51,7 @@ export default function Tel() {
             )}
           </Formik>
         </View>
-        <Image
-          style={styles.image}
-          source={require("../../assets/details.png")}
-        />
+        
       </View>
     </ScrollView>
   );
