@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
   },
   title: {
-    fontSize: 48,
+    fontSize: 42,
     fontWeight: "bold",
     color: "#3D3D4A",
   },
