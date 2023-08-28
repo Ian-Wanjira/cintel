@@ -30,14 +30,15 @@ export default function Name() {
             validationSchema={fullNameValidationSchema}
           >
             {({ handleSubmit, isValid }) => (
-              <>
+              <View style={styles.inputContainer}>
                 <Field
                   component={CustomInput}
                   name="fullName"
                   label="Full Name"
                   autoFocus
+                  style={styles.input}
                 />
-                <View style={{ flexDirection: "row", marginTop: 12 }}>
+                <View style={{ flexDirection: "row", marginTop: 12, gap:20 }}>
                   <Button
                     mode="contained"
                     onPress={handleSubmit}
@@ -45,12 +46,18 @@ export default function Name() {
                   >
                     Next
                   </Button>
+                  <Button
+                    mode="outlined"
+                    style={styles.outlinedBtn}
+                    
+                  >
+                    Back
+                  </Button>
                 </View>
-              </>
+              </View>
             )}
           </Formik>
         </View>
-        
       </View>
     </ScrollView>
   );
@@ -69,4 +76,20 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
   },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  input: {
+    flex: 1,
+    marginRight: 10,
+  },
+  outlinedBtn: {
+    borderColor: "#010089",
+    borderRadius: 100,
+    borderWidth: 2,
+    color: "#010089",
+    fontSize: 20,
+  },
+  
 });
