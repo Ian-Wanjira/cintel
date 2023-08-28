@@ -2,6 +2,7 @@ import { router } from "expo-router";
 import { Field, Formik } from "formik";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { CustomInput } from "../../lib/components/customInput";
 import { useUser, useUserDispatch } from "../../lib/contexts";
@@ -15,8 +16,16 @@ export default function Id() {
     dispatch({ type: "SET_ID", payload: id });
   }
 
-  const _submit = ({ id }) => {
+  const _submit = async ({ id }) => {
     handleChangeId(id);
+
+    // Save the input Value in AsyncStorage
+    try {
+      await AsyncStorage.setItem("tempId", id);
+      console.log("ID Number Stored: ", id);
+    } catch (error) {
+      console.log("Error saving input value")
+    }
     router.push("/details/tel");
   };
 
