@@ -51,10 +51,7 @@ export default function Id() {
             )}
           </Formik>
         </View>
-        <Image
-          style={styles.image}
-          source={require("../../assets/details.png")}
-        />
+        
       </View>
     </ScrollView>
   );
@@ -72,5 +69,20 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  input: {
+    flex: 1,
+    marginRight: 10,
+  },
+  outlinedBtn: {
+    borderColor: "#010089",
+    borderRadius: 100,
+    borderWidth: 2,
+    color: "#010089",
+    fontSize: 20,
   },
 });
