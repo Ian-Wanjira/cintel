@@ -6,6 +6,7 @@ import { Button } from "react-native-paper";
 import { CustomInput } from "../../lib/components/customInput";
 import { useUser, useUserDispatch } from "../../lib/contexts";
 import { telValidationSchema } from "../../lib/validations";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Tel() {
   const { tel } = useUser();
@@ -15,8 +16,16 @@ export default function Tel() {
     dispatch({ type: "SET_TEL", payload: tel });
   };
 
-  const _submit = ({ tel }) => {
+  const _submit = async ({ tel }) => {
     handleTelChange(tel);
+
+    // Save the input value in AsyncStorage
+    try {
+      await AsyncStorage.setItem("tempTelephone", tel);
+      console.log("Telephone Number: ", tel);
+    } catch (error) {
+      console.log("Error saving input value")
+    }
     router.push("/details/otp");
   };
 
