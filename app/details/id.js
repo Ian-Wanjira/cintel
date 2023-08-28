@@ -30,24 +30,32 @@ export default function Id() {
             validationSchema={idValidationSchema}
           >
             {({ handleSubmit, isValid }) => (
-              <>
-                <Field
-                  component={CustomInput}
-                  name="id"
-                  label="ID Number"
-                  keyboardType="numeric"
-                  autoFocus
-                />
-                <View style={{ flexDirection: "row", marginTop: 12 }}>
-                  <Button
-                    mode="contained"
-                    onPress={handleSubmit}
-                    disabled={!isValid}
-                  >
-                    Next
-                  </Button>
-                </View>
-              </>
+              <View style={styles.inputContainer}>
+              <Field
+                component={CustomInput}
+                name="id"
+                label="ID Number"
+                keyboardType="numeric"
+                autoFocus
+                style={styles.input}
+              />
+              <View style={{ flexDirection: "row", marginTop: 12, gap:20 }}>
+                <Button
+                  mode="contained"
+                  onPress={handleSubmit}
+                  disabled={!isValid}
+                >
+                  Next
+                </Button>
+                <Button
+                  mode="outlined"
+                  style={styles.outlinedBtn}
+                  
+                >
+                  Back
+                </Button>
+              </View>
+            </View>
             )}
           </Formik>
         </View>
