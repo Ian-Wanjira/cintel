@@ -2,6 +2,8 @@ import { router } from "expo-router";
 import { Field, Formik } from "formik";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 import { CustomInput } from "../../lib/components/customInput";
 import { useUser, useUserDispatch } from "../../lib/contexts/userContext";
@@ -15,8 +17,17 @@ export default function Name() {
     dispatch({ type: "SET_FULL_NAME", payload: fullName });
   }
 
-  const _submit = ({ fullName }) => {
+  const _submit = async ({ fullName }) => {
     handleChangeName(fullName);
+
+    // Save the input value in AsyncStorage
+    try {
+      await AsyncStorage.setItem("tempFullName", fullName);
+      console.log("Value stored in AsyncStorage:", fullName);
+    } catch (error) {
+      console.error("Error saving input value:", error);
+    }
+
     router.push("/details/id");
   };
 
