@@ -9,9 +9,9 @@ export default function Home() {
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.main}>
         <View style={styles.content}>
-          <Text style={styles.title}>Welcome to :</Text>
+          <Text style={styles.title}>WELCOME TO :</Text>
           <GradientText style={styles.subtitle}>
-            International House
+            INTERNATIONAL HOUSE
           </GradientText>
           <View style={styles.buttonContainer}>
             <Link href="/details">
@@ -69,12 +69,12 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
   },
   title: {
-    fontSize: 42,
+    fontSize: 26,
     fontWeight: "bold",
     color: "#3D3D4A",
   },
   subtitle: {
-    fontSize: 48,
+    fontSize: 34,
     fontWeight: 900,
     color: "#3D3D4A",
   },
