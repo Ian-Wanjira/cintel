@@ -30,24 +30,28 @@ export default function Tel() {
             validationSchema={telValidationSchema}
           >
             {({ handleSubmit, isValid }) => (
-              <>
-                <Field
-                  component={CustomInput}
-                  name="tel"
-                  label="Telephone Number"
-                  keyboardType="phone-pad"
-                  autoFocus
-                />
-                <View style={{ flexDirection: "row", marginTop: 12 }}>
-                  <Button
-                    mode="contained"
-                    onPress={handleSubmit}
-                    disabled={!isValid}
-                  >
-                    Next
-                  </Button>
-                </View>
-              </>
+              <View style={styles.inputContainer}>
+              <Field
+                component={CustomInput}
+                name="tel"
+                label="Telephone Number"
+                keyboardType="phone-pad"
+                autoFocus
+                style={styles.input}
+              />
+              <View style={{ flexDirection: "row", marginTop: 12, gap: 20 }}>
+                <Button
+                  mode="contained"
+                  onPress={handleSubmit}
+                  disabled={!isValid}
+                >
+                  Next
+                </Button>
+                <Button mode="outlined" style={styles.outlinedBtn}>
+                  Back
+                </Button>
+              </View>
+            </View>
             )}
           </Formik>
         </View>
@@ -69,5 +73,20 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  input: {
+    flex: 1,
+    marginRight: 10,
+  },
+  outlinedBtn: {
+    borderColor: "#010089",
+    borderRadius: 100,
+    borderWidth: 2,
+    color: "#010089",
+    fontSize: 20,
   },
 });

@@ -24,7 +24,7 @@ export default function Id() {
       await AsyncStorage.setItem("tempId", id);
       console.log("ID Number Stored: ", id);
     } catch (error) {
-      console.log("Error saving input value")
+      console.log("Error saving input value");
     }
     router.push("/details/tel");
   };
@@ -40,35 +40,30 @@ export default function Id() {
           >
             {({ handleSubmit, isValid }) => (
               <View style={styles.inputContainer}>
-              <Field
-                component={CustomInput}
-                name="id"
-                label="ID Number"
-                keyboardType="numeric"
-                autoFocus
-                style={styles.input}
-              />
-              <View style={{ flexDirection: "row", marginTop: 12, gap:20 }}>
-                <Button
-                  mode="contained"
-                  onPress={handleSubmit}
-                  disabled={!isValid}
-                >
-                  Next
-                </Button>
-                <Button
-                  mode="outlined"
-                  style={styles.outlinedBtn}
-                  
-                >
-                  Back
-                </Button>
+                <Field
+                  component={CustomInput}
+                  name="id"
+                  label="ID Number"
+                  keyboardType="numeric"
+                  autoFocus
+                  style={styles.input}
+                />
+                <View style={{ flexDirection: "row", marginTop: 12, gap: 20 }}>
+                  <Button
+                    mode="contained"
+                    onPress={handleSubmit}
+                    disabled={!isValid}
+                  >
+                    Next
+                  </Button>
+                  <Button mode="outlined" style={styles.outlinedBtn}>
+                    Back
+                  </Button>
+                </View>
               </View>
-            </View>
             )}
           </Formik>
         </View>
-        
       </View>
     </ScrollView>
   );
