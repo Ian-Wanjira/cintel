@@ -63,15 +63,18 @@ const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,
     alignItems: "flex-end",
+    
   },
   image: {
     objectFit: "contain",
     marginLeft: "auto",
+    width: 400
   },
   title: {
     fontSize: 26,
     fontWeight: "bold",
     color: "#3D3D4A",
+    marginBottom: 12
   },
   subtitle: {
     fontSize: 34,
